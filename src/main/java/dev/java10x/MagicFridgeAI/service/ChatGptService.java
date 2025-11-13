@@ -33,12 +33,12 @@ public class ChatGptService {
             "model","gpt-4o-mini",
             "messages", List.of(
                 Map.of(
-                "role", "system",
-                "content", "Você é um assistente que cria receitas."
+                    "role", "system",
+                    "content", "Você é um assistente que cria receitas."
                 ),
                 Map.of(
-                "role", "user",
-                "content", prompt
+                    "role", "user",
+                    "content", prompt
                 )
             )
         );
