@@ -1,4 +1,4 @@
-# 🧊 MagicFridgeAI
+# 🧊 Magic Fridge AI
 
 ![Java](https://img.shields.io/badge/Java-21-orange?style=flat-square&logo=java)
 ![Spring Boot](https://img.shields.io/badge/Spring%20Boot-3.5.7-brightgreen?style=flat-square&logo=spring)
@@ -30,6 +30,7 @@ O projeto demonstra a integração de uma aplicação Spring Boot tradicional co
 ## 🛠 Tecnologias Utilizadas
 
 ### Backend
+
 - **Java 21** - Linguagem de programação
 - **Spring Boot 3.5.7** - Framework principal
 - **Spring Data JPA** - Persistência de dados
@@ -41,6 +42,7 @@ O projeto demonstra a integração de uma aplicação Spring Boot tradicional co
 - **Maven** - Gerenciamento de dependências
 
 ### Integração com IA
+
 - **OpenAI ChatGPT API** - Geração de receitas usando o modelo `gpt-4o-mini`
 
 ## 📁 Arquitetura / Estrutura de Pastas
@@ -85,8 +87,9 @@ MagicFridgeAI/
 ### Passo a Passo
 
 1. **Clone o repositório**
+
    ```bash
-   git clone <url-do-repositorio>
+   git clone https://github.com/fbcamargo/java10x-magic-fridge-ai.git
    cd MagicFridgeAI
    ```
 
@@ -108,16 +111,19 @@ MagicFridgeAI/
    > 💡 **Nota**: Para obter uma API Key da OpenAI, acesse [https://platform.openai.com/api-keys](https://platform.openai.com/api-keys)
 
 3. **Compile o projeto**
+
    ```bash
    mvn clean install
    ```
 
 4. **Execute a aplicação**
+
    ```bash
    mvn spring-boot:run
    ```
 
    Ou execute diretamente a classe principal:
+
    ```bash
    java -jar target/MagicFridgeAI-0.0.1-SNAPSHOT.jar
    ```
@@ -131,6 +137,7 @@ MagicFridgeAI/
 ### Endpoints da API
 
 #### 1. **Cadastrar um alimento** (POST)
+
 ```bash
 curl -X POST http://localhost:8080/food \
   -H "Content-Type: application/json" \
@@ -143,6 +150,7 @@ curl -X POST http://localhost:8080/food \
 ```
 
 **Resposta:**
+
 ```json
 {
   "id": 1,
@@ -154,11 +162,13 @@ curl -X POST http://localhost:8080/food \
 ```
 
 #### 2. **Listar todos os alimentos** (GET)
+
 ```bash
 curl http://localhost:8080/food
 ```
 
 **Resposta:**
+
 ```json
 [
   {
@@ -179,11 +189,13 @@ curl http://localhost:8080/food
 ```
 
 #### 3. **Buscar alimento por ID** (GET)
+
 ```bash
 curl http://localhost:8080/food/1
 ```
 
 #### 4. **Atualizar alimento** (PUT)
+
 ```bash
 curl -X PUT http://localhost:8080/food/1 \
   -H "Content-Type: application/json" \
@@ -196,16 +208,19 @@ curl -X PUT http://localhost:8080/food/1 \
 ```
 
 #### 5. **Deletar alimento** (DELETE)
+
 ```bash
 curl -X DELETE http://localhost:8080/food/1
 ```
 
 #### 6. **Gerar receita com ChatGPT** (GET)
+
 ```bash
 curl http://localhost:8080/recipes/generate
 ```
 
 **Resposta:**
+
 ```
 Receita criada com base nos ingredientes disponíveis:
 
@@ -229,6 +244,7 @@ Modo de preparo:
 ### Exemplo Completo de Fluxo
 
 1. Cadastre alguns alimentos:
+
    ```bash
    curl -X POST http://localhost:8080/food -H "Content-Type: application/json" -d '{"nome":"Frango","categoria":"CARNE","quantidade":2,"validade":"2024-12-25"}'
    curl -X POST http://localhost:8080/food -H "Content-Type: application/json" -d '{"nome":"Tomate","categoria":"VEGETAIS","quantidade":5,"validade":"2024-12-31"}'
@@ -236,6 +252,7 @@ Modo de preparo:
    ```
 
 2. Liste os alimentos cadastrados:
+
    ```bash
    curl http://localhost:8080/food
    ```
@@ -249,13 +266,13 @@ Modo de preparo:
 
 ### Variáveis de Ambiente
 
-| Variável | Descrição | Exemplo | Obrigatório |
-|----------|-----------|---------|-------------|
-| `DATABASE_URL` | URL de conexão com o banco H2 | `jdbc:h2:file:./data/MagicFridgeDb` | ✅ Sim |
-| `DATABASE_USERNAME` | Usuário do banco de dados | `sa` | ✅ Sim |
-| `DATABASE_PASSWORD` | Senha do banco de dados | (vazio) | ✅ Sim |
-| `CHATGPT_API_URL` | URL da API do OpenAI | `https://api.openai.com/v1/chat/completions` | ✅ Sim |
-| `CHATGPT_API_KEY` | Chave de API da OpenAI | `sk-...` | ✅ Sim |
+| Variável            | Descrição                     | Exemplo                                      | Obrigatório |
+| ------------------- | ----------------------------- | -------------------------------------------- | ----------- |
+| `DATABASE_URL`      | URL de conexão com o banco H2 | `jdbc:h2:file:./data/MagicFridgeDb`          | ✅ Sim      |
+| `DATABASE_USERNAME` | Usuário do banco de dados     | `sa`                                         | ✅ Sim      |
+| `DATABASE_PASSWORD` | Senha do banco de dados       | (vazio)                                      | ✅ Sim      |
+| `CHATGPT_API_URL`   | URL da API do OpenAI          | `https://api.openai.com/v1/chat/completions` | ✅ Sim      |
+| `CHATGPT_API_KEY`   | Chave de API da OpenAI        | `sk-...`                                     | ✅ Sim      |
 
 ### Configurações do Application.properties
 
@@ -319,4 +336,3 @@ Este projeto está licenciado sob a Licença MIT - veja o arquivo [LICENSE](LICE
 ---
 
 **Desenvolvido com ❤️ para o curso Java10x**
-
